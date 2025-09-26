@@ -1,30 +1,44 @@
 /* Estilos para el contenedor principal del modal */
 .caja {
     width: 50%;
-    height: 200px;
-    margin: auto; /* Centra la caja horizontalmente (funciona, pero flexbox en el padre es mejor) */
+    max-width: 500px; /* Añadimos un ancho máximo para que no sea demasiado grande en pantallas anchas */
+    height: auto; /* La altura se ajustará al contenido */
+    margin: auto;
     box-shadow: 0 0 50px red;
-    border-radius: 50px;
-    padding: 10px;
+    border-radius: 25px; /* Reducimos un poco el radio para un look más moderno */
+    padding: 20px;
     background-color: wheat;
+    /* Usamos flexbox para organizar el contenido interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre los elementos internos */
+}
+
+/* Estilos para la imagen dentro del modal */
+.caja img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto;
+    border-radius: 15px; /* Bordes redondeados para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
 }
 
 /* Estilos para el fondo oscuro que cubre toda la pantalla (overlay) */
 .overlay {
-  position: fixed; /* Se mantiene en su lugar incluso si se hace scroll */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(14, 13, 0, 50%); /* Color negro con 50% de opacidad */
-  display: none; /* Por defecto está oculto */
+  background: rgb(14, 13, 0, 50%);
+  display: none;
 
-  /* Usamos flexbox para centrar el contenido (la caja del modal) vertical y horizontalmente */
+  /* Centrado del modal */
   align-items: center;
   justify-content: center;
 }
 
 /* Clase que se añade con JavaScript para mostrar el modal */
 .activo {
-    display: flex; /* Cambiamos a 'flex' para que sea visible */
+    display: flex;
 }
